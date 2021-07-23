@@ -1,6 +1,6 @@
 [submodule "microros_esp32_extensions/components/arduino"]
 	path = microros_esp32_extensions/components/arduino
-	url = https://github.com/espressif/arduino-esp32.git
+	url = https://github.com/nomumu/arduino-esp32.git
 [submodule "microros_esp32_extensions/components/m5stack"]
 	path = microros_esp32_extensions/components/m5stack
 	url = https://github.com/nomumu/M5Stack.git
