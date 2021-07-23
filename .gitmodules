@@ -3,4 +3,4 @@
 	url = https://github.com/espressif/arduino-esp32.git
 [submodule "microros_esp32_extensions/components/m5stack"]
 	path = microros_esp32_extensions/components/m5stack
-	url = https://github.com/m5stack/M5Stack.git
+	url = https://github.com/nomumu/M5Stack.git
