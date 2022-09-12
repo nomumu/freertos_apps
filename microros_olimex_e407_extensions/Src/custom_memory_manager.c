@@ -300,24 +300,21 @@ void *pvPortRealloc( void *pv, size_t xWantedSize )
 
 	void * newmem = pvPortMalloc(xWantedSize);
 
-	if (newmem != NULL && pv != NULL)
-	{
-		uint8_t *puc = ( uint8_t * ) pv;
-		BlockLink_t *pxLink;
+	uint8_t *puc = ( uint8_t * ) pv;
+	BlockLink_t *pxLink;
 
-		puc -= xHeapStructSize;
-		pxLink = ( void * ) puc;
+	puc -= xHeapStructSize;
+	pxLink = ( void * ) puc;
 
-		char *in_src = (char*)pv;
-		char *in_dest = (char*)newmem;
 
-		size_t count = (pxLink->xBlockSize & ~xBlockAllocatedBit) - xHeapStructSize;
-		if (xWantedSize < count) count = xWantedSize;
+	char *in_src = (char*)pv;
+  	char *in_dest = (char*)newmem;
+	size_t count = pxLink->xBlockSize & ~xBlockAllocatedBit;
 
-		while (count--) *in_dest++ = *in_src++;
+  	while(count--)
+    	*in_dest++ = *in_src++;
 
-		vPortFree(pv);
-	}
+	vPortFree(pv);
 
 	( void ) xTaskResumeAll();
 
